@@ -1,4 +1,20 @@
+"use client";
+import { useState } from "react";
+
 export default function Home() {
+
+  const [text, setText] = useState("");
+
+  function speak() {
+    if (!text) return;
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 1;
+    utterance.pitch = 1;
+
+    speechSynthesis.speak(utterance);
+  }
+
   return (
     <div style={{
       background: "#0b0b0b",
@@ -22,11 +38,13 @@ export default function Home() {
         fontSize: 22,
         marginBottom: 20
       }}>
-        Avatar Screen
+        Stuart Avatar
       </div>
 
       <input
-        placeholder="Talk to StuartSays..."
+        value={text}
+        onChange={(e)=>setText(e.target.value)}
+        placeholder="Say something..."
         style={{
           width: 300,
           padding: 12,
@@ -36,14 +54,17 @@ export default function Home() {
         }}
       />
 
-      <button style={{
-        padding: "12px 24px",
-        borderRadius: 10,
-        border: "none",
-        background: "#00ff9c",
-        fontWeight: "bold",
-        cursor: "pointer"
-      }}>
+      <button
+        onClick={speak}
+        style={{
+          padding: "12px 24px",
+          borderRadius: 10,
+          border: "none",
+          background: "#00ff9c",
+          fontWeight: "bold",
+          cursor: "pointer"
+        }}
+      >
         SPEAK
       </button>
 
