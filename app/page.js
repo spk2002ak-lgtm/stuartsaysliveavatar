@@ -1,14 +1,52 @@
 export default function Home() {
   return (
-    <main style={{
-      minHeight: "100vh",
-      background: "#0a0a0a",
+    <div style={{
+      background: "#0b0b0b",
+      height: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
       color: "white",
-      fontFamily: "Arial",
-      padding: "40px"
+      fontFamily: "sans-serif"
     }}>
-      <h1>StuartSays LiveAvatar</h1>
-      <p>This is your first deployed AI avatar app.</p>
-    </main>
+      
+      <div style={{
+        width: 420,
+        height: 420,
+        background: "#1a1a1a",
+        borderRadius: 20,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 22,
+        marginBottom: 20
+      }}>
+        Avatar Screen
+      </div>
+
+      <input
+        placeholder="Talk to StuartSays..."
+        style={{
+          width: 300,
+          padding: 12,
+          borderRadius: 10,
+          border: "none",
+          marginBottom: 10
+        }}
+      />
+
+      <button style={{
+        padding: "12px 24px",
+        borderRadius: 10,
+        border: "none",
+        background: "#00ff9c",
+        fontWeight: "bold",
+        cursor: "pointer"
+      }}>
+        SPEAK
+      </button>
+
+    </div>
   );
 }
